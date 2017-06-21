@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/background"
+    tools:context="com.project.luulinhson.ar.View.Registration.RegistrationActivity">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:src="@mipmap/title"
+                android:layout_gravity="center"
+                android:layout_marginTop="40dp"
+                />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_margin="20dp"
+                android:layout_marginBottom="20dp"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Name"
+                    android:textSize="17sp"
+                    android:textColor="#000"
+
+                    />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    >
+                    <EditText
+                        android:id="@+id/edFirstName"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:background="@mipmap/box_name"
+                        android:layout_weight="1"
+                        android:layout_marginRight="10dp"
+                        android:hint="First name"
+                        android:padding="10dp"
+                        android:textColor="#000"
+                        android:textSize="17sp"
+                        />
+
+                    <EditText
+                        android:id="@+id/edLastName"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:background="@mipmap/box_name"
+                        android:layout_weight="1"
+                        android:layout_marginLeft="10dp"
+                        android:hint="Last name"
+                        android:padding="10dp"
+                        android:textColor="#000"
+                        android:textSize="17sp"
+                        />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Birthday"
+                    android:textSize="17sp"
+                    android:textColor="#000"
+                    android:layout_marginTop="10dp"
+                    />
+
+                <TextView
+                    android:id="@+id/tvBirthDay"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@mipmap/box_name"
+                    android:hint="dd/mm/yy"
+                    android:padding="10dp"
+                    android:textColor="#000"
+                    android:textSize="17sp"
+                    android:gravity="center_vertical"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="School"
+                    android:textSize="17sp"
+                    android:textColor="#000"
+                    android:layout_marginTop="10dp"
+                    />
+
+                <TextView
+                    android:id="@+id/tvSchool"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@mipmap/box_name"
+                    android:hint="Where did you study?"
+                    android:text="3"
+                    android:padding="10dp"
+                    android:textColor="#000"
+                    android:textSize="17sp"
+
+                    android:gravity="center_vertical"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Email"
+                    android:textSize="17sp"
+                    android:textColor="#000"
+                    android:layout_marginTop="10dp"
+                    />
+
+                <EditText
+                    android:id="@+id/edEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@mipmap/box_name"
+                    android:hint="Email address"
+                    android:padding="10dp"
+                    android:textColor="#000"
+                    android:textSize="17sp"
+
+                    android:gravity="center_vertical"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Password"
+                    android:textSize="17sp"
+                    android:textColor="#000"
+                    android:layout_marginTop="10dp"
+                    />
+
+                <EditText
+                    android:id="@+id/edPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@mipmap/box_name"
+                    android:hint="Password"
+                    android:padding="10dp"
+                    android:textColor="#000"
+                    android:textSize="17sp"
+                    android:gravity="center_vertical"
+                    android:inputType="textPassword"
+                    />
+
+                <CheckBox
+                    android:id="@+id/checkbox"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:text="I agree with the terms when using the app"
+                    android:textSize="17sp"
+                    android:layout_marginTop="10dp"
+                    />
+
+                <Button
+                    android:id="@+id/btnDone"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="#FF9800"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="Done"
+                    android:textSize="17sp"
+                    android:textColor="#FFF"
+                    />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </FrameLayout>
+
+
+</ScrollView>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.project.luulinhson.ar">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".View.Main.MainActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".View.Splash.SplashActivity"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".View.Top.TopActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".View.Registration.RegistrationActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".View.Error.ErrorOne"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".View.Error.ErrorTwo"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".View.RegistrationInfo.RegistrationInfoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".View.MyPage.MyPageActivity"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".View.Popup.PopupCameraActivity"
+            android:theme="@style/Theme.AppCompat.Light.Dialog" />
+        <activity android:name=".View.Edit.EditActivity" />
+        <activity android:name=".View.Login.LoginActivity" />
+        <activity android:name=".View.Reminder.ReminderActivity"></activity>
+    </application>
+
+</manifest>

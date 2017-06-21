@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.project.luulinhson.ar.View.Top.TopActivity"
+    android:orientation="vertical"
+    android:background="@mipmap/background"
+    >
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="220dp"
+                android:src="@mipmap/logo"
+                android:layout_gravity="center"
+                android:layout_marginTop="90dp"
+                />
+
+            <LinearLayout
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="50dp"
+                android:layout_gravity="center"
+                >
+
+                <ImageView
+                    android:id="@+id/activity_top_registration"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:src="@mipmap/registration"
+                    android:layout_weight="1"
+                    />
+
+                <ImageView
+                    android:id="@+id/activity_top_login"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:src="@mipmap/login"
+                    android:layout_weight="1"
+                    />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/activity_top_pass"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:src="@mipmap/pass"
+                android:layout_marginTop="90dp"
+                android:layout_marginBottom="20dp"
+                />
+        </LinearLayout>
+    </FrameLayout>
+
+
+</ScrollView>
