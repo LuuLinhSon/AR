@@ -4,14 +4,18 @@ import android.content.Context;
 import android.os.Handler;
 import android.util.Log;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
-import com.project.luulinhson.ar.Conection.DownLoadJson;
+import com.google.gson.reflect.TypeToken;
+
+import com.project.luulinhson.ar.CustomView.ServerCallback;
 import com.project.luulinhson.ar.Model.Object.User;
 import com.project.luulinhson.ar.View.Registration.ViewHandleRegistrantion;
 
@@ -19,6 +23,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.concurrent.ExecutionException;
 
 /**
@@ -27,34 +35,42 @@ import java.util.concurrent.ExecutionException;
 
 public class ModelRegistration {
 
-    public boolean Registration(Context context,User user){
-        String url = "http://localhost:8080/login/views/signup.php";
-        Gson gson = new Gson();
-        String jsonString = gson.toJson(user);
-        Log.d("GSON", "Registration: " + jsonString);
-        Boolean check = false;
+    public void RegistrationUser(Context context, final User user, final ServerCallback callback)
+    {
+        String URL = "http://192.168.1.5:8080/login/views/signup.php";
 
-        DownLoadJson downLoadJson = new DownLoadJson(context,url);
-        downLoadJson.execute(jsonString);
-
-        try {
-            String json = downLoadJson.get();
-            JSONObject jsonObject = new JSONObject(json);
-            String result = jsonObject.getString("message");
-            if(result.equals("Sign Up Successful")){
-                check = true;
-            }else {
-                check = false;
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                 callback.onSuccess(response);
             }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
 
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
+            }
+        }){
+           @Override
+           public String getBodyContentType()
+           {
+               return "application/x-www-form-urlencoded; charset=UTF-8";
+           }
 
-        return check;
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("email", user.getEmail());
+                params.put("password",user.getPassword() );
+                params.put("id_school",user.getId_school() );
+                params.put("first_name",user.getFirst_name() );
+                params.put("last_name",user.getLast_name() );
+                params.put("date_of_birth",user.getDate_of_birth());
+                return params;
+            }
+       };
+
+        RequestQueue requestQueue = Volley.newRequestQueue(context);
+        requestQueue.add(stringRequest);
+
     }
 }

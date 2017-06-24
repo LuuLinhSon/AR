@@ -5,7 +5,7 @@ import android.util.Log;
 
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.google.gson.Gson;
-import com.project.luulinhson.ar.Conection.DownLoadJson;
+
 import com.project.luulinhson.ar.Model.Object.User;
 
 import org.json.JSONException;
