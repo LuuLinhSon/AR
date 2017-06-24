@@ -1,6 +1,7 @@
 package com.project.luulinhson.ar.Presenter.Registration;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.util.Log;
 
 import com.project.luulinhson.ar.CustomView.ServerCallback;
@@ -26,7 +27,7 @@ public class HandleRegistration implements iHandleRegistration {
     }
 
     @Override
-    public void HandleRegistration(Context context,User user) {
+    public void HandleRegistration(final Context context, User user) {
         modelRegistration.RegistrationUser(context, user, new ServerCallback() {
             @Override
             public void onSuccess(String result) {
@@ -36,6 +37,12 @@ public class HandleRegistration implements iHandleRegistration {
                     Log.d("MESSAGE......", "onSuccess: " + message);
                     if(message.equals("Sign Up Successful")){
                         viewHandleRegistrantion.RegistrantionSuccsess();
+                        // Lấy token server trả về và lưu vào SharedPreferences
+                        String token = jsonOb.getString("token");
+                        SharedPreferences sharedPreferences = context.getSharedPreferences("usertoken",Context.MODE_PRIVATE);
+                        SharedPreferences.Editor editor = sharedPreferences.edit();
+                        editor.putString("token",token);
+                        editor.commit();
                     }else {
                         viewHandleRegistrantion.RegistrantionFail();
                     }

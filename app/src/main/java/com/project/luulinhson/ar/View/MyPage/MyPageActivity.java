@@ -2,6 +2,7 @@ package com.project.luulinhson.ar.View.MyPage;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -13,17 +14,20 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.project.luulinhson.ar.Model.Object.User;
+import com.project.luulinhson.ar.Presenter.MyPage.HandleGetDataMyPage;
 import com.project.luulinhson.ar.R;
 import com.project.luulinhson.ar.View.Edit.EditActivity;
 import com.project.luulinhson.ar.View.Popup.PopupCameraActivity;
 
 import static java.security.AccessController.getContext;
 
-public class MyPageActivity extends AppCompatActivity implements View.OnClickListener{
+public class MyPageActivity extends AppCompatActivity implements View.OnClickListener,ViewHandleGetDataMyPage{
 
     ImageView imAvatar,imCamera,imEdit;
     TextView tvName,tvBirthDay,tvSchool;
     public static final int REQUES_CODE_AVATAR = 8888;
+    HandleGetDataMyPage handleGetDataMyPage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +44,8 @@ public class MyPageActivity extends AppCompatActivity implements View.OnClickLis
         imAvatar.setOnClickListener(this);
         imCamera.setOnClickListener(this);
         imEdit.setOnClickListener(this);
+
+
 
     }
 
@@ -94,5 +100,29 @@ public class MyPageActivity extends AppCompatActivity implements View.OnClickLis
             return false;
         }
 
+    }
+
+    @Override
+    public void GetDataSuccess(User user) {
+        tvName.setText(user.getFirst_name() + " " + user.getLast_name());
+        tvBirthDay.setText(user.getDate_of_birth());
+        tvSchool.setText(user.getId_school());
+    }
+
+    @Override
+    public void GetDataFail() {
+        Toast.makeText(this,"ERROR!",Toast.LENGTH_LONG).show();
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        SharedPreferences sharedPreferences = getSharedPreferences("usertoken",Context.MODE_PRIVATE);
+        String token = sharedPreferences.getString("token","");
+        if(!token.equals("")){
+            handleGetDataMyPage = new HandleGetDataMyPage(this);
+            handleGetDataMyPage.HandleGetDataMyPage(this,token);
+        }
     }
 }
