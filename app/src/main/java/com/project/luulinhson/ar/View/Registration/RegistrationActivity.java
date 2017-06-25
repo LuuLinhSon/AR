@@ -22,6 +22,7 @@ import com.project.luulinhson.ar.CustomView.DatePickerFragment;
 import com.project.luulinhson.ar.Model.Object.User;
 import com.project.luulinhson.ar.Presenter.Registration.HandleRegistration;
 import com.project.luulinhson.ar.R;
+import com.project.luulinhson.ar.View.DialogSchool.ListSchoolActivity;
 import com.project.luulinhson.ar.View.Error.ErrorOne;
 import com.project.luulinhson.ar.View.Error.ErrorTwo;
 import com.project.luulinhson.ar.View.RegistrationInfo.RegistrationInfoActivity;
@@ -37,6 +38,8 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
     Button btnDone;
     HandleRegistration handleRegistration;
     User user;
+    int idSchool;
+    public static final int REQUEST_CODE_SCHOOL = 1111;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,7 +73,8 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
                 break;
             case R.id.tvSchool:
                 if(KiemTraKetNoiMang()){
-
+                    Intent iListSchool = new Intent(RegistrationActivity.this, ListSchoolActivity.class);
+                    startActivityForResult(iListSchool,REQUEST_CODE_SCHOOL);
                 }else {
                     Toast.makeText(this, "Please connect to internet!", Toast.LENGTH_SHORT).show();
                 }
@@ -120,7 +124,7 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
                         user.setFirst_name(firstName);
                         user.setLast_name(lastName);
                         user.setDate_of_birth(birthDay);
-                        user.setId_school(school);
+                        user.setId_school(String.valueOf(idSchool));
                         user.setEmail(email);
                         user.setPassword(password);
 
@@ -156,7 +160,18 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
         } else {
             return false;
         }
+    }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == REQUEST_CODE_SCHOOL){
+            if(resultCode == RESULT_OK){
+                Intent intent = data;
+                tvSchool.setText(intent.getStringExtra("school"));
+                idSchool = intent.getIntExtra("id",0);
+            }
+        }
     }
 }
 

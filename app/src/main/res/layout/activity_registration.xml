@@ -105,11 +105,9 @@
                     android:layout_height="40dp"
                     android:background="@mipmap/box_name"
                     android:hint="Where did you study?"
-                    android:text="3"
                     android:padding="10dp"
                     android:textColor="#000"
-                    android:textSize="17sp"
-
+                    android:textSize="15sp"
                     android:gravity="center_vertical"
                     />
 

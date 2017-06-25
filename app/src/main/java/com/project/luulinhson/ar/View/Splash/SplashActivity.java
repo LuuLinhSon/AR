@@ -19,31 +19,36 @@ public class SplashActivity extends AppCompatActivity {
         setContentView(R.layout.activity_splash);
 
         Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Intent intent = new Intent(SplashActivity.this,TopActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        },1000);
 
-        SharedPreferences sharedPreferences = getSharedPreferences("usertoken", Context.MODE_PRIVATE);
-        String token = sharedPreferences.getString("token","");
-        if(!token.equals("")){
-            handler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    Intent intent = new Intent(SplashActivity.this,MyPageActivity.class);
-                    startActivity(intent);
-                    finish();
-                }
-            },1000);
-        }else {
-            handler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    Intent intent = new Intent(SplashActivity.this,TopActivity.class);
-                    startActivity(intent);
-                    finish();
-                }
-            },1000);
-        }
-
-
-
+//        SharedPreferences sharedPreferences = getSharedPreferences("usertoken", Context.MODE_PRIVATE);
+//        String token = sharedPreferences.getString("token","");
+//        if(!token.equals("")){
+//            handler.postDelayed(new Runnable() {
+//                @Override
+//                public void run() {
+//                    Intent intent = new Intent(SplashActivity.this,MyPageActivity.class);
+//                    startActivity(intent);
+//                    finish();
+//                }
+//            },1000);
+//        }else {
+//            handler.postDelayed(new Runnable() {
+//                @Override
+//                public void run() {
+//                    Intent intent = new Intent(SplashActivity.this,TopActivity.class);
+//                    startActivity(intent);
+//                    finish();
+//                }
+//            },1000);
+//        }
     }
 
 }

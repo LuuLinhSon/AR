@@ -3,7 +3,7 @@
     package="com.project.luulinhson.ar">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -14,11 +14,10 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".View.Main.MainActivity"
-            android:screenOrientation="portrait" >
-        </activity>
+            android:screenOrientation="portrait"></activity>
         <activity
             android:name=".View.Splash.SplashActivity"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -42,14 +41,17 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".View.MyPage.MyPageActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait"></activity>
         <activity
             android:name=".View.Popup.PopupCameraActivity"
             android:theme="@style/Theme.AppCompat.Light.Dialog" />
         <activity android:name=".View.Edit.EditActivity" />
         <activity android:name=".View.Login.LoginActivity" />
-        <activity android:name=".View.Reminder.ReminderActivity"></activity>
+        <activity android:name=".View.Reminder.ReminderActivity" />
+        <activity android:name=".View.DialogSchool.ListSchoolActivity"
+            android:theme="@style/Theme.AppCompat.Light.Dialog"
+            >
+        </activity>
     </application>
 
 </manifest>
