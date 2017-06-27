@@ -6,6 +6,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -35,10 +36,11 @@ public class RegistrationInfoActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         User user = (User) intent.getSerializableExtra("user");
+        String school = intent.getStringExtra("school");
 
         tvName.setText(user.getFirst_name() + " " + user.getLast_name());
         tvBirthDay.setText(user.getDate_of_birth());
-        tvSchool.setText(user.getId_school());
+        tvSchool.setText(school);
         tvEmail.setText(user.getEmail());
         tvPassword.setText(user.getPassword());
 
@@ -63,6 +65,13 @@ public class RegistrationInfoActivity extends AppCompatActivity {
         } else {
             return false;
         }
+    }
 
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (event.getAction() == KeyEvent.ACTION_DOWN) {
+            finish();
+        }
+        return false;
     }
 }

@@ -2,6 +2,7 @@ package com.project.luulinhson.ar.Presenter.Login;
 
 import android.content.Context;
 
+import com.project.luulinhson.ar.CustomView.ServerCallback;
 import com.project.luulinhson.ar.Model.Object.User;
 
 /**
@@ -9,5 +10,5 @@ import com.project.luulinhson.ar.Model.Object.User;
  */
 
 public interface iHandleLogin {
-    void HandleLogin(Context context, User user);
+    void HandleLogin(Context context, String email, String password);
 }

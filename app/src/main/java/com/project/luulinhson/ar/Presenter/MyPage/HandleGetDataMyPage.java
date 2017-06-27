@@ -1,6 +1,7 @@
 package com.project.luulinhson.ar.Presenter.MyPage;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.project.luulinhson.ar.CustomView.ServerCallback;
 import com.project.luulinhson.ar.Model.MyPage.ModelMyPage;

@@ -6,6 +6,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -43,7 +44,7 @@ public class ReminderActivity extends AppCompatActivity implements View.OnClickL
                 }
                 break;
             case R.id.btnBack:
-                Intent iTop = new Intent(ReminderActivity.this, TopActivity.class);
+                Intent iTop = new Intent(ReminderActivity.this,TopActivity.class);
                 startActivity(iTop);
                 break;
         }
@@ -58,5 +59,15 @@ public class ReminderActivity extends AppCompatActivity implements View.OnClickL
             return false;
         }
 
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (event.getAction() == KeyEvent.ACTION_DOWN) {
+            finish();
+            Intent iTop = new Intent(ReminderActivity.this,TopActivity.class);
+            startActivity(iTop);
+        }
+        return false;
     }
 }

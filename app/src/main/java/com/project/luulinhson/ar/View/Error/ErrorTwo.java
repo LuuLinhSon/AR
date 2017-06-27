@@ -6,6 +6,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -14,6 +15,7 @@ import android.widget.Toast;
 import com.project.luulinhson.ar.R;
 import com.project.luulinhson.ar.View.Login.LoginActivity;
 import com.project.luulinhson.ar.View.Reminder.ReminderActivity;
+import com.project.luulinhson.ar.View.Top.TopActivity;
 
 public class ErrorTwo extends AppCompatActivity implements View.OnClickListener{
 
@@ -36,12 +38,14 @@ public class ErrorTwo extends AppCompatActivity implements View.OnClickListener{
         switch (id){
             case R.id.imDuplication:
                 if(KiemTraKetNoiMang()){
-
+                    Intent iReminder = new Intent(ErrorTwo.this,ReminderActivity.class);
+                    startActivity(iReminder);
                 }else {
                     Toast.makeText(ErrorTwo.this, "Please connect to internet!", Toast.LENGTH_SHORT).show();
                 }
                 break;
             case R.id.btnBack:
+                finish();
                 Intent iLogin = new Intent(ErrorTwo.this, LoginActivity.class);
                 startActivity(iLogin);
                 break;
@@ -56,6 +60,15 @@ public class ErrorTwo extends AppCompatActivity implements View.OnClickListener{
         } else {
             return false;
         }
+    }
 
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (event.getAction() == KeyEvent.ACTION_DOWN) {
+            finish();
+            Intent iTop = new Intent(ErrorTwo.this,TopActivity.class);
+            startActivity(iTop);
+        }
+        return false;
     }
 }

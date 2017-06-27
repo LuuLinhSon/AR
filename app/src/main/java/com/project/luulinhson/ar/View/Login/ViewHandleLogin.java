@@ -7,6 +7,6 @@ import com.project.luulinhson.ar.Model.Object.User;
  */
 
 public interface ViewHandleLogin {
-    void LoginSuccess(User user);
+    void LoginSuccess(String token);
     void LoginFail();
 }

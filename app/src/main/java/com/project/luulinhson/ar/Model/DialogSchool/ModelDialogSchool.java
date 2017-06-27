@@ -20,7 +20,7 @@ import org.json.JSONArray;
 public class ModelDialogSchool {
 
     public void GetListSchool(Context context,final ServerCallback serverCallback){
-        String URL = "http://192.168.1.5:8080/login/views/school.php";
+        String URL = "http://192.168.100.174:8080/login/views/school.php";
 
         StringRequest stringRequest = new StringRequest(Request.Method.GET, URL, new Response.Listener<String>() {
             @Override

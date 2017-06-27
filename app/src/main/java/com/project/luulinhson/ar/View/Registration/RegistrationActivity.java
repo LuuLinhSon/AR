@@ -93,30 +93,37 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
                     if(firstName.trim().equals("")){
 //                    Toast.makeText(this,"The first name can not be empty",Toast.LENGTH_LONG).show();
                         Intent iError = new Intent(RegistrationActivity.this,ErrorOne.class);
+                        iError.putExtra("idactivity",1);
                         startActivity(iError);
                     }else if(lastName.trim().equals("")){
 //                    Toast.makeText(this,"The last name can not be empty",Toast.LENGTH_LONG).show();
                         Intent iError = new Intent(RegistrationActivity.this,ErrorOne.class);
+                        iError.putExtra("idactivity",1);
                         startActivity(iError);
                     }else if(birthDay.trim().equals("")){
 //                    Toast.makeText(this,"The birth day can not be empty",Toast.LENGTH_LONG).show();
                         Intent iError = new Intent(RegistrationActivity.this,ErrorOne.class);
+                        iError.putExtra("idactivity",1);
                         startActivity(iError);
                     }else if(school.trim().equals("")){
 //                    Toast.makeText(this,"The school can not be empty",Toast.LENGTH_LONG).show();
                         Intent iError = new Intent(RegistrationActivity.this,ErrorOne.class);
+                        iError.putExtra("idactivity",1);
                         startActivity(iError);
                     }else if(email.trim().equals("") || !kiemtraemail){
 //                    Toast.makeText(this,"Incorrect email address",Toast.LENGTH_LONG).show();
                         Intent iError = new Intent(RegistrationActivity.this,ErrorOne.class);
+                        iError.putExtra("idactivity",1);
                         startActivity(iError);
                     }else if(password.trim().equals("")){
 //                    Toast.makeText(this,"The password can not be empty",Toast.LENGTH_LONG).show();
                         Intent iError = new Intent(RegistrationActivity.this,ErrorOne.class);
+                        iError.putExtra("idactivity",1);
                         startActivity(iError);
                     }else if(!isCheck){
 //                    Toast.makeText(this,"You have not confirmed the terms",Toast.LENGTH_LONG).show();
                         Intent iError = new Intent(RegistrationActivity.this,ErrorOne.class);
+                        iError.putExtra("idactivity",1);
                         startActivity(iError);
                     }else {
                         // code gửi data lên server
@@ -141,9 +148,11 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
     @Override
     public void RegistrantionSuccsess() {
         // code chuyển trang và put data user qua activity registration_info
-        Intent iRegistrationInfo = new Intent(RegistrationActivity.this, RegistrationInfoActivity.class);
+        Intent iRegistrationInfo = new Intent(RegistrationActivity.this,RegistrationInfoActivity.class);
         iRegistrationInfo.putExtra("user",user);
+        iRegistrationInfo.putExtra("school",tvSchool.getText().toString());
         startActivity(iRegistrationInfo);
+        finish();
     }
 
     @Override

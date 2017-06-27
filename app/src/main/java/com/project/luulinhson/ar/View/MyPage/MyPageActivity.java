@@ -45,8 +45,6 @@ public class MyPageActivity extends AppCompatActivity implements View.OnClickLis
         imCamera.setOnClickListener(this);
         imEdit.setOnClickListener(this);
 
-
-
     }
 
     @Override

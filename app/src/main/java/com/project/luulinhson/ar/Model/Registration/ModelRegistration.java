@@ -37,7 +37,7 @@ public class ModelRegistration {
 
     public void RegistrationUser(Context context, final User user, final ServerCallback callback)
     {
-        String URL = "http://192.168.1.5:8080/login/views/signup.php";
+        String URL = "http://192.168.100.174:8080/login/views/signup.php";
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
             @Override
