@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.project.luulinhson.ar.R;
+import com.project.luulinhson.ar.View.Edit.EditActivity;
 import com.project.luulinhson.ar.View.Login.LoginActivity;
 import com.project.luulinhson.ar.View.Registration.RegistrationActivity;
 import com.project.luulinhson.ar.View.Reminder.ReminderActivity;
@@ -24,7 +25,7 @@ public class ErrorOne extends AppCompatActivity {
 
         btnBack = (Button) findViewById(R.id.btnBack);
 
-        Intent intent = getIntent();
+        final Intent intent = getIntent();
         idactivity = intent.getIntExtra("idactivity",0);
 
         btnBack.setOnClickListener(new View.OnClickListener() {
@@ -33,9 +34,15 @@ public class ErrorOne extends AppCompatActivity {
                 if(idactivity == 1){
                     Intent iRegistration = new Intent(ErrorOne.this,RegistrationActivity.class);
                     startActivity(iRegistration);
+                    finish();
                 }else if(idactivity == 2) {
                     Intent iLogin = new Intent(ErrorOne.this,LoginActivity.class);
                     startActivity(iLogin);
+                    finish();
+                }else if(idactivity == 3){
+                    Intent iEdit = new Intent(ErrorOne.this,EditActivity.class);
+                    startActivity(iEdit);
+                    finish();
                 }
 
             }
@@ -49,9 +56,15 @@ public class ErrorOne extends AppCompatActivity {
             if(idactivity == 1){
                 Intent iRegistration = new Intent(ErrorOne.this,RegistrationActivity.class);
                 startActivity(iRegistration);
+                finish();
             }else if(idactivity == 2) {
                 Intent iLogin = new Intent(ErrorOne.this,LoginActivity.class);
                 startActivity(iLogin);
+                finish();
+            }else if(idactivity == 3){
+                Intent iEdit = new Intent(ErrorOne.this,EditActivity.class);
+                startActivity(iEdit);
+                finish();
             }
         }
         return false;

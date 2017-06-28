@@ -87,6 +87,7 @@ public class MyPageActivity extends AppCompatActivity implements View.OnClickLis
             case R.id.imEdit:
                 Intent iEdit = new Intent(MyPageActivity.this, EditActivity.class);
                 startActivity(iEdit);
+                finish();
                 break;
         }
     }

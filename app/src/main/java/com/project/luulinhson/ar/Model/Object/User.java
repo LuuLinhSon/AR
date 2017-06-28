@@ -15,6 +15,16 @@ public class User implements Serializable {
     String email;
     String password;
     String profile_picture;
+    String token;
+
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
 
     public String getFirst_name() {
         return first_name;

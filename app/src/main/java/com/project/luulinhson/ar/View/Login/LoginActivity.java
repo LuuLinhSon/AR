@@ -71,6 +71,7 @@ public class LoginActivity extends AppCompatActivity implements ViewHandleLogin{
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString("token",token);
         editor.commit();
+        finish();
 
         Intent iMyPage = new Intent(LoginActivity.this, MyPageActivity.class);
         startActivity(iMyPage);

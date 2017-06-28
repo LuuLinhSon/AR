@@ -44,6 +44,7 @@ public class TopActivity extends AppCompatActivity implements View.OnClickListen
                 if(KiemTraKetNoiMang()){
                     Intent iRegistration = new Intent(TopActivity.this, RegistrationActivity.class);
                     startActivity(iRegistration);
+                    finish();
                 }else {
                     Toast.makeText(this, "Please connect to internet!", Toast.LENGTH_SHORT).show();
                 }
@@ -52,6 +53,7 @@ public class TopActivity extends AppCompatActivity implements View.OnClickListen
                 if(KiemTraKetNoiMang()){
                     Intent iLogin = new Intent(TopActivity.this, LoginActivity.class);
                     startActivity(iLogin);
+                    finish();
                 }else {
                     Toast.makeText(this, "Please connect to internet!", Toast.LENGTH_SHORT).show();
                 }
@@ -60,6 +62,7 @@ public class TopActivity extends AppCompatActivity implements View.OnClickListen
                 if(KiemTraKetNoiMang()){
                     Intent iReminder = new Intent(TopActivity.this, ReminderActivity.class);
                     startActivity(iReminder);
+                    finish();
                 }else {
                     Toast.makeText(this, "Please connect to internet!", Toast.LENGTH_SHORT).show();
                 }

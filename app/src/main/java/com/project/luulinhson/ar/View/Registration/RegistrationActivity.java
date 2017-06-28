@@ -95,36 +95,43 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
                         Intent iError = new Intent(RegistrationActivity.this,ErrorOne.class);
                         iError.putExtra("idactivity",1);
                         startActivity(iError);
+                        finish();
                     }else if(lastName.trim().equals("")){
 //                    Toast.makeText(this,"The last name can not be empty",Toast.LENGTH_LONG).show();
                         Intent iError = new Intent(RegistrationActivity.this,ErrorOne.class);
                         iError.putExtra("idactivity",1);
                         startActivity(iError);
+                        finish();
                     }else if(birthDay.trim().equals("")){
 //                    Toast.makeText(this,"The birth day can not be empty",Toast.LENGTH_LONG).show();
                         Intent iError = new Intent(RegistrationActivity.this,ErrorOne.class);
                         iError.putExtra("idactivity",1);
                         startActivity(iError);
+                        finish();
                     }else if(school.trim().equals("")){
 //                    Toast.makeText(this,"The school can not be empty",Toast.LENGTH_LONG).show();
                         Intent iError = new Intent(RegistrationActivity.this,ErrorOne.class);
                         iError.putExtra("idactivity",1);
                         startActivity(iError);
+                        finish();
                     }else if(email.trim().equals("") || !kiemtraemail){
 //                    Toast.makeText(this,"Incorrect email address",Toast.LENGTH_LONG).show();
                         Intent iError = new Intent(RegistrationActivity.this,ErrorOne.class);
                         iError.putExtra("idactivity",1);
                         startActivity(iError);
+                        finish();
                     }else if(password.trim().equals("")){
 //                    Toast.makeText(this,"The password can not be empty",Toast.LENGTH_LONG).show();
                         Intent iError = new Intent(RegistrationActivity.this,ErrorOne.class);
                         iError.putExtra("idactivity",1);
                         startActivity(iError);
+                        finish();
                     }else if(!isCheck){
 //                    Toast.makeText(this,"You have not confirmed the terms",Toast.LENGTH_LONG).show();
                         Intent iError = new Intent(RegistrationActivity.this,ErrorOne.class);
                         iError.putExtra("idactivity",1);
                         startActivity(iError);
+                        finish();
                     }else {
                         // code gửi data lên server
                         user = new User();
@@ -159,6 +166,7 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
     public void RegistrantionFail() {
         Intent iErrorTwo = new Intent(RegistrationActivity.this, ErrorTwo.class);
         startActivity(iErrorTwo);
+        finish();
     }
 
     private boolean KiemTraKetNoiMang() {

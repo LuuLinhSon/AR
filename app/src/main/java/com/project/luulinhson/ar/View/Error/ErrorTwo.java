@@ -40,14 +40,15 @@ public class ErrorTwo extends AppCompatActivity implements View.OnClickListener{
                 if(KiemTraKetNoiMang()){
                     Intent iReminder = new Intent(ErrorTwo.this,ReminderActivity.class);
                     startActivity(iReminder);
+                    finish();
                 }else {
                     Toast.makeText(ErrorTwo.this, "Please connect to internet!", Toast.LENGTH_SHORT).show();
                 }
                 break;
             case R.id.btnBack:
-                finish();
-                Intent iLogin = new Intent(ErrorTwo.this, LoginActivity.class);
+                Intent iLogin = new Intent(ErrorTwo.this, TopActivity.class);
                 startActivity(iLogin);
+                finish();
                 break;
         }
     }
