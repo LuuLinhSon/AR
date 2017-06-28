@@ -8,13 +8,15 @@
     android:background="@mipmap/background"
     tools:context="com.project.luulinhson.ar.View.MyPage.MyPageActivity">
 
-    <ImageView
+    <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/imAvatar"
-        android:layout_width="150dp"
+        android:layout_width="200dp"
         android:layout_height="200dp"
         android:layout_gravity="center"
         android:layout_marginTop="90dp"
         android:src="@mipmap/avatar"
+        app:civ_border_width="1dp"
+        app:civ_border_color="#FF000000"
         />
     <TextView
         android:id="@+id/tvName"

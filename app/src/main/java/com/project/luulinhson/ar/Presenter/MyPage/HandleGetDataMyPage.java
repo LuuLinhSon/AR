@@ -30,6 +30,7 @@ public class HandleGetDataMyPage implements iHandleGetDataMyPge {
         modelMyPage.GetDataMyPage(context, token, new ServerCallback() {
             @Override
             public void onSuccess(String result) {
+                Log.d("RESULT>>>>>>>>>>>>>", "onSuccess: " + result);
                 try {
                     JSONObject jsonObject = new JSONObject(result);
                     int success = jsonObject.getInt("success");

@@ -50,6 +50,7 @@ public class RegistrationInfoActivity extends AppCompatActivity {
                 if(KiemTraKetNoiMang()){
                     Intent iMyPage = new Intent(RegistrationInfoActivity.this, MyPageActivity.class);
                     startActivity(iMyPage);
+                    finish();
                 }else {
                     Toast.makeText(RegistrationInfoActivity.this, "Please connect to internet!", Toast.LENGTH_SHORT).show();
                 }
