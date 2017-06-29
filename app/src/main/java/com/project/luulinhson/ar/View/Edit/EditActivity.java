@@ -1,5 +1,6 @@
 package com.project.luulinhson.ar.View.Edit;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -11,6 +12,7 @@ import android.util.Log;
 import android.util.Patterns;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -58,6 +60,8 @@ public class EditActivity extends AppCompatActivity implements View.OnClickListe
         btnEdit.setOnClickListener(this);
 
         handleEditUser = new HandleEditUser(this);
+
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
 
     }
 

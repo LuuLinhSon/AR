@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -37,6 +38,8 @@ public class LoginActivity extends AppCompatActivity implements ViewHandleLogin{
         edPassword = (EditText) findViewById(R.id.edPassword);
         btnLogin = (Button) findViewById(R.id.btnLogin);
         handleLogin = new HandleLogin(this);
+
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override

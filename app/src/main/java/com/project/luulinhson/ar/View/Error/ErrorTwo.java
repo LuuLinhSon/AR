@@ -30,6 +30,9 @@ public class ErrorTwo extends AppCompatActivity implements View.OnClickListener{
         imDuplication = (ImageView) findViewById(R.id.imDuplication);
         btnBack = (Button) findViewById(R.id.btnBack);
 
+        imDuplication.setOnClickListener(this);
+        btnBack.setOnClickListener(this);
+
     }
 
     @Override
