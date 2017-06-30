@@ -1,6 +1,8 @@
 package com.project.luulinhson.ar.View.MyPage;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
@@ -30,6 +32,7 @@ import com.project.luulinhson.ar.Presenter.MyPage.HandleGetDataMyPage;
 import com.project.luulinhson.ar.R;
 import com.project.luulinhson.ar.View.Edit.EditActivity;
 import com.project.luulinhson.ar.View.Popup.PopupCameraActivity;
+import com.project.luulinhson.ar.View.Top.TopActivity;
 
 import java.net.MalformedURLException;
 import java.net.URI;
@@ -43,7 +46,7 @@ import static java.security.AccessController.getContext;
 
 public class MyPageActivity extends AppCompatActivity implements View.OnClickListener,ViewHandleGetDataMyPage{
 
-    ImageView imAvatar,imCamera,imEdit;
+    ImageView imAvatar,imCamera,imEdit,imLogOut;
     TextView tvName,tvBirthDay,tvSchool;
     public static final int REQUES_CODE_AVATAR = 8888;
     HandleGetDataMyPage handleGetDataMyPage;
@@ -53,9 +56,9 @@ public class MyPageActivity extends AppCompatActivity implements View.OnClickLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_page);
 
-//        imAvatar = (ImageView) findViewById(R.id.imAvatar);
         imAvatar = (ImageView) findViewById(R.id.imAvatar);
         imCamera = (ImageView) findViewById(R.id.imCamera);
+        imLogOut = (ImageView) findViewById(R.id.imLogOut);
         imEdit = (ImageView) findViewById(R.id.imEdit);
         tvName = (TextView) findViewById(R.id.tvName);
         tvBirthDay = (TextView) findViewById(R.id.tvBirthDay);
@@ -64,8 +67,7 @@ public class MyPageActivity extends AppCompatActivity implements View.OnClickLis
         imAvatar.setOnClickListener(this);
         imCamera.setOnClickListener(this);
         imEdit.setOnClickListener(this);
-
-
+        imLogOut.setOnClickListener(this);
 
     }
 
@@ -88,6 +90,22 @@ public class MyPageActivity extends AppCompatActivity implements View.OnClickLis
                 Intent iEdit = new Intent(MyPageActivity.this, EditActivity.class);
                 startActivity(iEdit);
                 finish();
+                break;
+            case R.id.imLogOut:
+                new AlertDialog.Builder(this)
+                        .setMessage("You want to exit?")
+                        .setCancelable(false)
+                        .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                SharedPreferences sharedPreferences = getSharedPreferences("usertoken",Context.MODE_PRIVATE);
+                                sharedPreferences.edit().remove("token").commit();
+                                Intent iTop = new Intent(MyPageActivity.this, TopActivity.class);
+                                startActivity(iTop);
+                                finish();
+                            }
+                        })
+                        .setNegativeButton("No", null)
+                        .show();
                 break;
         }
     }
@@ -128,7 +146,17 @@ public class MyPageActivity extends AppCompatActivity implements View.OnClickLis
 
         tvName.setText(user.getFirst_name() + " " + user.getLast_name());
         tvBirthDay.setText(user.getDate_of_birth());
-        tvSchool.setText(user.getId_school());
+        if(user.getId_school().equals("1")){
+            tvSchool.setText("Trường đại học nông nghiệp Hà Nội");
+        }else if(user.getId_school().equals("2")){
+            tvSchool.setText("Trường đại học công nghiệp Hà Nội");
+        }else if(user.getId_school().equals("3")){
+            tvSchool.setText("Trường đại học bách khoa Hà Nội");
+        }else if(user.getId_school().equals("4")){
+            tvSchool.setText("Trường đại học xây dựng Hà Nội");
+        }else if(user.getId_school().equals("5")){
+            tvSchool.setText("Trường đại học ngoại ngữ Hà Nội");
+        }
         Uri uri = Uri.parse(user.getProfile_picture());
         Glide.with(MyPageActivity.this).load(uri).into(imAvatar);
 

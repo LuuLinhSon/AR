@@ -6,6 +6,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
@@ -37,6 +38,7 @@ public class RegistrationInfoActivity extends AppCompatActivity {
         Intent intent = getIntent();
         User user = (User) intent.getSerializableExtra("user");
         String school = intent.getStringExtra("school");
+
 
         tvName.setText(user.getFirst_name() + " " + user.getLast_name());
         tvBirthDay.setText(user.getDate_of_birth());
